@@ -109,6 +109,11 @@ my %WriteMakefile = (
 
 	'EXE_FILES'     => \@exe_files,
 
+	'INSTALLPRIVLIB' => catfile('$(INSTALL_BASE)', 'lib'),
+	'INSTALLSITELIB' => catfile('$(INSTALL_BASE)', 'lib'),
+	'INSTALLSITEMAN1DIR' =>  catfile('$(INSTALL_BASE)', 'man', 'man1'),
+	'INSTALLSITEMAN3DIR' =>  catfile('$(INSTALL_BASE)', 'man', 'man3'),
+
 	'CONFIGURE_REQUIRES' => {
 		'ExtUtils::MakeMaker'   => '6.64',
 		'File::Spec::Functions' => '0',
