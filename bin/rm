@@ -58,6 +58,8 @@ package PerlPowerTools::rm;
 
 use strict;
 
+use PerlPowerTools::Common;
+
 use File::Basename;
 use File::Spec::Functions;
 use Storable qw(dclone);
