@@ -58,6 +58,8 @@ package PerlPowerTools::rm;
 
 use strict;
 
+use FindBin;
+use lib "$FindBin::Bin/../lib";
 use PerlPowerTools::Common;
 
 use File::Basename;

@@ -15,6 +15,10 @@ package PerlPowerTools::ls;
 
 use strict;
 
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use PerlPowerTools::Common;
+
 use Config qw(%Config);
 use File::Basename qw(basename);
 use File::Spec;
