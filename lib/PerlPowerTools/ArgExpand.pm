@@ -1,7 +1,8 @@
-package PerlPowerTools::Common;
+package PerlPowerTools::ArgExpand;
 
 use strict;
 use Encode qw(decode encode);
+use File::Glob ':bsd_glob';
 
 # Adjust terminal output encoding and @ARGV encoding on Windows to avoid garbled characters
 if ( $^O eq 'MSWin32' ) {
@@ -152,7 +153,6 @@ if ( $^O eq 'MSWin32' ) {
 		65001 utf-8);
 	$acp           = Win32::GetACP();
 	$argv_encoding = $code_page_indentifiers{$acp};
-	Win32::SetConsoleOutputCP(65001);
 
 	foreach ( 0 .. $#ARGV ) {
 		$ARGV[$_] = encode( 'UTF8', decode( $argv_encoding, $ARGV[$_] ) );
@@ -161,8 +161,8 @@ if ( $^O eq 'MSWin32' ) {
 
 my @processed_argv;
 foreach (@ARGV) {
-   if (/\*/) {
-       push @processed_argv, glob $_;
+   if (/\*|~/) {
+       push @processed_argv, bsd_glob $_;
    } else {
        push @processed_argv, ($_);
    }

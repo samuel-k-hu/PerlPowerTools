@@ -13,6 +13,10 @@ License: perl
 
 use strict;
 
+use FindBin;
+use lib "$FindBin::Bin/../lib";
+use PerlPowerTools::ArgExpand;
+
 # To be able to output non-ASCII characters in Windows CMD and PowerShell
 if ($^O eq 'MSWin32') {
     require Win32;
